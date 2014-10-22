@@ -1,0 +1,71 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Wed Oct 22 16:46:58 2014
+# Process ID: 8845
+# Log file: /home/vladimir/ml605tesst/port/planAhead_run_2/planAhead.log
+# Journal file: /home/vladimir/ml605tesst/port/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/vladimir/ml605tesst/port/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  sys_clk_p]]
+startgroup
+set_property package_pin M20 [get_ports sys_reset_n]
+endgroup
+set_property is_loc_fixed false [get_ports [list  sys_reset_n]]
+set_property is_loc_fixed true [get_ports [list  sys_reset_n]]
+set_property iostandard LVDS_25 [get_ports [list sys_clk_p]]
+set_property iostandard LVCMOS18 [get_ports [list {pci_exp_rxn[3]} {pci_exp_rxn[2]} {pci_exp_rxn[1]} {pci_exp_rxn[0]}]]
+startgroup
+set_property package_pin D8 [get_ports {pci_exp_txp[2]}]
+endgroup
+startgroup
+set_property package_pin C8 [get_ports {pci_exp_txn[2]}]
+endgroup
+startgroup
+set_property package_pin A9 [get_ports {pci_exp_txn[1]}]
+endgroup
+startgroup
+set_property package_pin A9 [get_ports {pci_exp_txn[1]}]
+endgroup
+startgroup
+set_property package_pin C10 [get_ports {pci_exp_txn[0]}]
+endgroup
+startgroup
+set_property package_pin A7 [get_ports {pci_exp_txn[3]}]
+endgroup
+startgroup
+set_property package_pin D10 [get_ports {pci_exp_txp[0]}]
+endgroup
+startgroup
+set_property package_pin B9 [get_ports {pci_exp_txp[1]}]
+endgroup
+startgroup
+set_property package_pin B7 [get_ports {pci_exp_txp[3]}]
+endgroup
+startgroup
+set_property package_pin B11 [get_ports {pci_exp_rxp[3]}]
+endgroup
+startgroup
+set_property package_pin D14 [get_ports {pci_exp_rxp[2]}]
+endgroup
+startgroup
+set_property package_pin B13 [get_ports {pci_exp_rxp[1]}]
+endgroup
+startgroup
+set_property package_pin D12 [get_ports {pci_exp_rxp[0]}]
+endgroup
+startgroup
+set_property package_pin A11 [get_ports {pci_exp_rxn[3]}]
+endgroup
+startgroup
+set_property package_pin C14 [get_ports {pci_exp_rxn[2]}]
+endgroup
+startgroup
+set_property package_pin A13 [get_ports {pci_exp_rxn[1]}]
+endgroup
+startgroup
+set_property package_pin C12 [get_ports {pci_exp_rxn[0]}]
+endgroup
+save_constraints
