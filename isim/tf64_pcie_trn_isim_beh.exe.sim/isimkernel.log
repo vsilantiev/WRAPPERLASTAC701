@@ -1,0 +1,28 @@
+Command line:
+   tf64_pcie_trn_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57100
+
+Thu Oct 23 17:13:32 2014
+
+
+ Elaboration Time: 0.24 sec
+
+ Current Memory Usage: 314.298 Meg
+
+ Total Signals          : 9115
+ Total Nets             : 78953
+ Total Signal Drivers   : 4078
+ Total Blocks           : 1068
+ Total Primitive Blocks : 1047
+ Total Processes        : 3642
+ Total Traceable Variables  : 1675
+ Total Scalar Nets and Variables : 237529
+
+ Total Simulation Time: 35.5 sec
+
+ Current Memory Usage: 391.152 Meg
+
+Thu Oct 23 17:14:16 2014
+

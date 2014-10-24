@@ -774,7 +774,7 @@ end component;
   signal trn_teof_n                  : std_logic;
   signal trn_tsrc_rdy_n              : std_logic;
   signal trn_tdst_rdy_n              : std_logic;
-  signal trn_tdst_dsc_n              : std_logic;
+  signal trn_tdst_dsc_n              : std_logic;-- Убрал временно должно быть в pcie
   signal trn_tsrc_dsc_n              : std_logic;
   signal trn_terrfwd_n               : std_logic;
   signal trn_tbuf_av                 : std_logic_vector(5 downto 0);
@@ -1123,7 +1123,7 @@ begin
                        
 -- 
 
-   trn_tdst_dsc_n             <= '1';
+  trn_tdst_dsc_n             <= '1'; -- Убрал временно должно быть в pci
 
 --
    cfg_di                     <= (OTHERS=>'0');

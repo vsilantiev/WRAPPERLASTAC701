@@ -1,0 +1,87 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/vladimir/ml605tesst/port/tf64_pcie_trn_isim_beh.exe" -prj "/home/vladimir/ml605tesst/port/tf64_pcie_trn_beh.prj" "work.tf64_pcie_trn" "work.glbl" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/vladimir/ml605tesst/port/MySim/tf64_pcie_trn.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/v6abb64Package_efifo_elink.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/FF_tagram64x36.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/DMA_FSM.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/DMA_Calculate.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/ipcore_dir_ISE13.3/v6_sfifo_15x128.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/Tx_Output_Arbitor.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/tx_Mem_Reader.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_usDMA_Channel.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_MWr_Channel.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_MRd_Channel.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_dsDMA_Channel.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_CplD_Channel.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/RxIn_Delays.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/Interrupts.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/ipcore_dir_ISE13.3/v6_mBuf_128x72.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/tx_Transact.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/rx_Transact.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/Registers.vhd" into library work
+Parsing VHDL file "/home/vladimir/ml605tesst/port/MySource/tlpControl.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 135896 KB
+Fuse CPU Usage: 1260 ms
+Compiling module tf64_pcie_trn
+Compiling module glbl
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package abb64package
+Compiling package vcomponents
+Compiling architecture behavioral of entity RxIn_Delay [rxin_delay_default]
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling package numeric_std
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling architecture fdc_v of entity FDC [\FDC('0')\]
+Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture fdp_v of entity FDP [\FDP('1')\]
+Compiling architecture fdce_v of entity FDCE [\FDCE('0')\]
+Compiling architecture srlc32e_v of entity SRLC32E [\SRLC32E("0000000000000000000000...]
+Compiling architecture fdpe_v of entity FDPE [\FDPE('1')\]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("0100")(0,3)\]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("0000110010100110")(0,15)\]
+Compiling architecture lut5_v of entity LUT5 [\LUT5("0110010110101010101010101...]
+Compiling architecture lut6_v of entity LUT6 [\LUT6("0110010110101010101010101...]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("11111110")(0,7)\]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture structure of entity v6_sfifo_15x128 [v6_sfifo_15x128_default]
+Compiling architecture behavioral of entity rx_MRd_Transact [rx_mrd_transact_default]
+Compiling architecture behavioral of entity rx_MWr_Transact [rx_mwr_transact_default]
+Compiling architecture structure of entity FF_TagRam64x36 [ff_tagram64x36_default]
+Compiling architecture behavioral of entity rx_CplD_Transact [rx_cpld_transact_default]
+Compiling architecture behavioral of entity DMA_Calculate [dma_calculate_default]
+Compiling architecture behavioral of entity DMA_FSM [dma_fsm_default]
+Compiling architecture behavioral of entity usDMA_Transact [usdma_transact_default]
+Compiling architecture behavioral of entity dsDMA_Transact [dsdma_transact_default]
+Compiling architecture behavioral of entity Interrupts [interrupts_default]
+Compiling architecture behavioral of entity rx_Transact [rx_transact_default]
+Compiling architecture behavioral of entity tx_Mem_Reader [tx_mem_reader_default]
+Compiling architecture ff36_internal_vhdl_v of entity FF36_INTERNAL_VHDL [\FF36_INTERNAL_VHDL("00000001100...]
+Compiling architecture fifo36e1_v of entity FIFO36E1 [\FIFO36E1("0000000110000000","00...]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture srlc16e_v of entity SRLC16E [\SRLC16E("0000000000011111")(0,1...]
+Compiling architecture fde_v of entity FDE [\FDE('1')\]
+Compiling architecture structure of entity v6_mBuf_128x72 [v6_mbuf_128x72_default]
+Compiling architecture behavioral of entity Tx_Output_Arbitor [tx_output_arbitor_default]
+Compiling architecture behavioral of entity tx_Transact [tx_transact_default]
+Compiling architecture behavioral of entity Regs_Group [regs_group_default]
+Compiling architecture behavioral of entity tlpControl [tlpcontrol_default]
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 131 VHDL Units
+Compiled 2 Verilog Units
+Built simulation executable /home/vladimir/ml605tesst/port/tf64_pcie_trn_isim_beh.exe
+Fuse Memory Usage: 733916 KB
+Fuse CPU Usage: 1950 ms
+GCC CPU Usage: 130 ms

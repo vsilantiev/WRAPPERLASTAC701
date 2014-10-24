@@ -113,7 +113,8 @@ entity v6_pcie_v1_7_x4 is
     trn_tdst_rdy_n                 : out STD_LOGIC; 
     trn_tcfg_gnt_n                 : in  STD_LOGIC; 
     trn_tstr_n                     : in  STD_LOGIC; 
-
+	 
+	
     -- Rx                      
     trn_rd                         : out STD_LOGIC_vector (64-1 downto 0); 
     trn_rrem_n                     : out  std_logic; 
@@ -465,39 +466,21 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
       sys_rst_n                                  : in std_logic);
   end component; 
   
-
   
-  
-  
-  
-  
--- signal tx_cfg_gnt : std_logic; -- ON OUT IN V6PCIE
---  signal trn_clk : std_logic; -- ON OUT IN V6PCIE
- -- signal trn_reset_n : std_logic; -- ON OUT IN V6PCIE
- -- signal trn_lnk_up_n : std_logic; -- ON OUT IN V6PCIE
--- Common
   signal user_lnk_up            : std_logic;
-  signal user_lnk_up_q          : std_logic;
   signal user_clk               : std_logic;
   signal user_reset             : std_logic;
-  signal user_reset_i           : std_logic;
-  signal user_reset_q           : std_logic;
-
   -- Tx
   signal tx_buf_av              : std_logic_vector(5 downto 0);
   signal tx_cfg_req             : std_logic;
   signal tx_err_drop            : std_logic;
   signal tx_cfg_gnt             : std_logic;
-  signal s_axis_tx_tready       : std_logic;
-  
-  signal s_axis_tx_tready_i       : std_logic;
-  
+  signal s_axis_tx_tready       : std_logic;  
   signal s_axis_tx_tuser        : std_logic_vector (3 downto 0);
   signal s_axis_tx_tdata        : std_logic_vector((C_DBUS_WIDTH - 1) downto 0);
   signal s_axis_tx_tkeep        : std_logic_vector((C_DBUS_WIDTH/8 - 1) downto 0);
   signal s_axis_tx_tlast        : std_logic;
   signal s_axis_tx_tvalid       : std_logic;
-
   -- Rx
   signal m_axis_rx_tdata        : std_logic_vector((C_DBUS_WIDTH - 1) downto 0);
   signal m_axis_rx_tkeep        : std_logic_vector((C_DBUS_WIDTH/8- 1) downto 0);
@@ -507,7 +490,6 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal m_axis_rx_tuser        : std_logic_vector (21 downto 0);
   signal rx_np_ok               : std_logic;
   signal rx_np_req              : std_logic;
-
   -- Flow Control
   signal fc_cpld                : std_logic_vector(11 downto 0);
   signal fc_cplh                : std_logic_vector(7 downto 0);
@@ -516,7 +498,6 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal fc_pd                  : std_logic_vector(11 downto 0);
   signal fc_ph                  : std_logic_vector(7 downto 0);
   signal fc_sel                 : std_logic_vector(2 downto 0);
-
   ---------------------------------------------------------
   -- 3. Configuration (CFG) Interface
   ---------------------------------------------------------
@@ -556,14 +537,12 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal cfg_err_aer_headerlog_set     : std_logic;
   signal cfg_aer_ecrc_check_en         : std_logic;
   signal cfg_aer_ecrc_gen_en           : std_logic;
-
   signal cfg_mgmt_di                   : std_logic_vector(31 downto 0);
   signal cfg_mgmt_byte_en              : std_logic_vector(3 downto 0);
   signal cfg_mgmt_dwaddr               : std_logic_vector(9 downto 0);
   signal cfg_mgmt_wr_en                : std_logic;
   signal cfg_mgmt_rd_en                : std_logic;
   signal cfg_mgmt_wr_readonly          : std_logic;
-
   ---------------------------------------------------------
   -- 4. Physical Layer Control and Status (PL) Interface
   ---------------------------------------------------------
@@ -571,11 +550,8 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal pl_link_upcfg_cap              : std_logic;
   signal pl_sel_lnk_rate                : std_logic;
   signal pl_sel_lnk_width               : std_logic_vector(1 downto 0);
-
-
   signal sys_rst                        : std_logic;
   -- Wires used for external clocking connectivity
-
   signal  trn_tdst_rdy                       : std_logic;
   signal  trn_tdst_dsc                       : std_logic;
   signal  trn_rrem                           : std_logic_vector(0 downto 0);
@@ -587,7 +563,6 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
  -- signal  trn_rbar_hit                       : std_logic_vector(7 downto 0);
  signal trn_rbar_hit              : std_logic_vector(6 downto 0);
   signal  cfg_rd_wr_done                     : std_logic;
-
   signal  trn_tstr                           : std_logic;
   signal  trn_tecrc_gen                      : std_logic;
   signal  trn_trem                           : std_logic_vector(0 downto 0);
@@ -598,15 +573,8 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal  trn_terrfwd                        : std_logic;
   signal  trn_rnp_ok                         : std_logic;
   signal  trn_rdst_rdy                       : std_logic;
-
-
-
-
-
-
   signal is_sof : std_logic_vector(4 downto 0);
-  signal is_eof : std_logic_vector(4 downto 0);
-  
+  signal is_eof : std_logic_vector(4 downto 0); 
   signal trn_tdst_rdy_int     : std_logic;
   signal trn_tsrc_rdy_derived : std_logic := '0';
   signal in_packet_reg        : std_logic;
@@ -623,6 +591,7 @@ function str(b: boolean) return string is
     end str;
   	constant		  PCIE_EXT_CLK                               : string := "FALSE";
 	constant		  UPSTREAM_FACING                            : string := "TRUE";
+	constant TCQ                  : time           := 1 ns;
 begin
 
 
@@ -881,30 +850,6 @@ begin
 );
 
 
---  process (trn_clk)
---  begin
---   if (user_reset = '1') then
---       s_axis_tx_tready_i <= '0' after TCQ;
---   elsif (trn_clk'event and trn_clk = '1') then
---       s_axis_tx_tready_i <= s_axis_tx_tready after TCQ;
---   end if;
---  end process;
-
---  process(trn_clk)
---  begin
---    if (trn_clk'event and trn_clk='1') then
---     if (user_reset = '1') then
---       user_reset_q  <= '1' after TCQ;
---       user_lnk_up_q <= '0' after TCQ;
---     else
---       user_reset_q  <= user_reset after TCQ;
---       user_lnk_up_q <= user_lnk_up after TCQ;
---     end if;
---    end if;
---  end process;
-
-
-
   tx_cfg_gnt <= not trn_tcfg_gnt_n;	-- IN NOT SIGNAL
 
   trn_clk		<= user_clk;
@@ -956,7 +901,8 @@ begin
    cfg_interrupt_rdy_n   <= not cfg_interrupt_rdy;
   
    cfg_interrupt_assert <= not cfg_interrupt_assert_n;
-
+	
+	
    cfg_err_ecrc          <= not cfg_err_ecrc_n; -- in <= out
    cfg_err_ur            <= not cfg_err_ur_n;
    cfg_err_cpl_timeout   <= not cfg_err_cpl_timeout_n;
@@ -969,8 +915,16 @@ begin
 	cfg_pm_wake           <= not cfg_pm_wake_n;
 	trn_tstr					<= not trn_tstr_n;
    trn_tbuf_av				<= tx_buf_av; -- trn_tbuf_av(FOR TLP OUT SIGNAL NENUGEN) <= tx_buf_av(EST SIGNAL PRIHODIT IZ PCI)
-
-
+	
+	cfg_rd_wr_done_n      <= not cfg_rd_wr_done;
+	cfg_to_turnoff_n      <= not cfg_to_turnoff;
+   trn_fc_cpld    <=   fc_cpld;                          
+   trn_fc_cplh    <=   fc_cplh;                             
+   trn_fc_npd     <=   fc_npd;                             
+   trn_fc_nph     <=   fc_nph;                           
+	trn_fc_pd 		<=   fc_pd;                                    
+   trn_fc_ph      <=   fc_ph;                                     
+   fc_sel         <=   trn_fc_sel;
 
 
 

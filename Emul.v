@@ -583,21 +583,21 @@ always @(posedge clk) begin
 					case (count)
 				  0: 
 					begin
-						 real_data_out[63:48] <= real_data[15:0];
+						 real_data_out[63:48] <= 'd12345; //real_data[15:0];
 					 	fifowr_en <= 0;				
 					end
 				  1:
 						begin
-					 	real_data_out[15:0] <=  real_data[15:0];	
+					 	real_data_out[15:0] <=  'd12345;//real_data[15:0];	
 						 fifowr_en <= 0;
 						 end
 				  2: 
 						begin
-					 	real_data_out[31:16] <= real_data[15:0];
+					 	real_data_out[31:16] <= 'd12345;//real_data[15:0];
 						 fifowr_en <= 0;
 						 end
 				  3: begin
-						 real_data_out[47:32] <=  real_data[15:0]; 
+						 real_data_out[47:32] <= 'd12345; //real_data[15:0]; 
 					 
 						
 						 if (fifofull == 1)

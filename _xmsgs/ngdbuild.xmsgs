@@ -1391,9 +1391,6 @@
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/cfg_dstatus&lt;6&gt;</arg>&apos; has no driver
 </msg>
 
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/cfg_dstatus&lt;5&gt;</arg>&apos; has no driver
-</msg>
-
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/cfg_dstatus&lt;4&gt;</arg>&apos; has no driver
 </msg>
 
@@ -1434,15 +1431,6 @@
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/cfg_dcommand2&lt;12&gt;</arg>&apos; has no driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/v7_pcie_i/s_axis_tx_tuser&lt;3&gt;</arg>&apos; has no driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/v7_pcie_i/s_axis_tx_tuser&lt;1&gt;</arg>&apos; has no driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/v7_pcie_i/s_axis_tx_tuser&lt;0&gt;</arg>&apos; has no driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser&lt;20&gt;</arg>&apos; has no driver

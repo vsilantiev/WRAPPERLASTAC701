@@ -1,9 +1,74 @@
 Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Oct 22 20:28:40 2014
+Thu Oct 23 18:02:24 2014
 
 All signals are completely routed.
 
+WARNING:ParHelpers:361 - There are 62 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   ad9467_1/delay_rst_s
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_do<11>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_do<27>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_do<43>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_do<59>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_rxsyncdone<0>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_rxsyncdone<1>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_rxsyncdone<2>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_rxsyncdone<3>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_txsyncdone<0>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_txsyncdone<1>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_txsyncdone<2>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gt_txsyncdone<3>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/rxdlysresetdone<0>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/rxphaligndone_s<0>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/user_rxcdrlock<0>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/user_rxcdrlock<1>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/user_rxcdrlock<2>
+   make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/user_rxcdrlock<3>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_raddr<11>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_raddr<12>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_waddr<11>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_waddr<12>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_raddr<11>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_raddr<12>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_waddr<11>
+   make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_waddr<12>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<10>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<11>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<12>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<13>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<14>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<15>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<16>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<17>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<18>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<19>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<20>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<21>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<22>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<23>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<24>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<25>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<2>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<3>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<4>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<5>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<6>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<7>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<8>
+   theTlpControl/rx_Itf/Downstream_DMA_Engine/dsDMA_PA_Loaded<9>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<16>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<17>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<18>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<19>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<20>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<21>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<22>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<23>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<24>
+   theTlpControl/rx_Itf/Upstream_DMA_Engine/usDMA_PA_Loaded<25>
+   trn_reset_n
 
 

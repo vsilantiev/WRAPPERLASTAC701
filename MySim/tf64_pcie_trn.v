@@ -367,65 +367,13 @@ module tf64_pcie_trn();
 
 
 
-	// Instantiate the BRAM module
-   bram_DDRs_Control_loopback 
-	DDRs_ctrl_module
-   (
-    .DDR_wr_sof(DDR_wr_sof), 
-    .DDR_wr_eof(DDR_wr_eof), 
-    .DDR_wr_v(DDR_wr_v), 
-    .DDR_wr_FA(1'b0), 
-    .DDR_wr_Shift(DDR_wr_Shift), 
-    .DDR_wr_Mask(DDR_wr_Mask), 
-    .DDR_wr_din(DDR_wr_din), 
 
-	  //Aggiunti da v5 a v6	
-    .DDR_wr_full(DDR_wr_full),
-
- 
-    .DDR_rdc_sof(DDR_rdc_sof), 
-    .DDR_rdc_eof(DDR_rdc_eof), 
-    .DDR_rdc_v(DDR_rdc_v), 
-    .DDR_rdc_FA(1'b0), 
-    .DDR_rdc_Shift(DDR_rdc_Shift),
-    .DDR_rdc_din(DDR_rdc_din), 
-    .DDR_rdc_full(DDR_rdc_full), 
-	 
-    .DDR_FIFO_RdEn(DDR_FIFO_RdEn), 
-    .DDR_FIFO_Empty(DDR_FIFO_Empty), 
-    .DDR_FIFO_RdQout(DDR_FIFO_RdQout), 
-	 
-    .DDR_Ready(DDR_Ready), 
-	 .DDR_blinker(DDR_blinker), 
-    .Sim_Zeichen(Sim_Zeichen), 
-    .mem_clk(mem_clk), 
-    .trn_clk(trn_clk), 
-    .trn_reset_n(trn_reset_n)
-
-    //S .DBG_dma_start(DBG_dma_start),
-    );
 
    assign  DDR_wr_full = 0;
 
 
 	// Instantiate the FIFO module
-   eb_wrapper_loopback
-   queue_buffer(
-         .wr_clk     (  trn_clk        ),
-         .wr_en      (  eb_FIFO_we     ),
-         .din        (  {8'H0, eb_FIFO_din}    ),
-         .pfull      (  eb_pfull       ),
-         .full       (  eb_full        ),
 
-         .rd_clk     (  trn_clk        ),
-         .rd_en      (  eb_FIFO_re     ),
-         .dout       (  eb_FIFO_qout   ),
-         .pempty     (  eb_pempty      ),
-         .empty      (  eb_empty       ),
-         .data_count (  eb_FIFO_Data_Count[15:1]),
-
-         .rst        (  eb_FIFO_Rst    )
-         );
 
    assign  eb_FIFO_Data_Count[26:16] = 0;
    assign  eb_FIFO_Data_Count[0] = 0;
