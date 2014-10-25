@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/vladimir/ml605tesst/port/v6pcieDMA.ncd
-OUTFILE=/home/vladimir/ml605tesst/port/v6pcieDMA.bit
+INFILE=C:\Users\vsilantiev\Documents\LASTWAC701\WRAPPERLASTAC701\v6pcieDMA.ncd
+OUTFILE=C:\Users\vsilantiev\Documents\LASTWAC701\WRAPPERLASTAC701\v6pcieDMA.bit
 FAMILY=Artix7
 PART=xc7a200t-2fbg676
-WORKINGDIR=/home/vladimir/ml605tesst/port
+WORKINGDIR=C:\Users\vsilantiev\Documents\LASTWAC701\WRAPPERLASTAC701
 LICENSE=WebPack
-USER_INFO=__0_0_0
+USER_INFO=_0_0_1381685376_010

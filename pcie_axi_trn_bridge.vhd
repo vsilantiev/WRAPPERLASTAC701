@@ -221,7 +221,65 @@ entity v6_pcie_v1_7_x4 is
 
 end v6_pcie_v1_7_x4; 
 
-architecture Behavioral of v6_pcie_v1_7_x4 is 
+architecture Behavioral of v6_pcie_v1_7_x4 is
+
+   component transmiter
+  port (
+    user_clk               : in  std_logic;
+    user_reset             : in  std_logic;
+    user_lnk_up            : in  std_logic;
+
+    s_axis_tx_tdata        : out std_logic_vector(64-1 downto 0);
+    s_axis_tx_tvalid       : out std_logic;
+    s_axis_tx_tready       : in  std_logic;
+    s_axis_tx_tkeep        : out std_logic_vector((64/8)-1 downto 0);
+    s_axis_tx_tlast        : out std_logic;
+    s_axis_tx_tuser        : out std_logic_vector( 3 downto 0);
+
+
+    trn_td                 : in  std_logic_vector(64-1 downto 0);
+    trn_tsof               : in  std_logic;
+    trn_teof               : in  std_logic;
+    trn_tsrc_rdy           : in  std_logic;
+    trn_tdst_rdy           : out std_logic;
+    trn_tsrc_dsc           : in  std_logic;
+    trn_trem               : in  std_logic_vector(0 downto 0);
+    trn_terrfwd            : in  std_logic;
+    trn_tstr               : in  std_logic;
+    trn_tecrc_gen          : in  std_logic
+
+  );
+  end component;
+
+   component receiver
+  port (
+    user_clk               : in  std_logic;
+    user_reset             : in  std_logic;
+    user_lnk_up            : in  std_logic;
+
+    m_axis_rx_tdata        : in  std_logic_vector(64-1 downto 0);
+    m_axis_rx_tvalid       : in  std_logic;
+    m_axis_rx_tready       : out std_logic;
+    m_axis_rx_tkeep        : in  std_logic_vector((64/8)-1 downto 0);
+    m_axis_rx_tlast        : in  std_logic;
+    m_axis_rx_tuser        : in  std_logic_vector(21 downto 0);
+
+    trn_rd                 : out std_logic_vector(64-1 downto 0);
+    trn_rsof               : out std_logic;
+    trn_reof               : out std_logic;
+    trn_rsrc_rdy           : out std_logic;
+    trn_rdst_rdy           : in  std_logic;
+    trn_rsrc_dsc           : out std_logic;
+    trn_rrem               : out std_logic_vector(0 downto 0);
+    trn_rerrfwd            : out std_logic;
+	 trn_rbar_hit           : out std_logic_vector(6 downto 0)
+
+  );
+  end component;
+
+
+
+
    component v7_pcie    generic (
            PL_FAST_TRAIN                              : string := "FALSE";
 			  PCIE_EXT_CLK                               : string := "FALSE";
@@ -550,7 +608,6 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal pl_link_upcfg_cap              : std_logic;
   signal pl_sel_lnk_rate                : std_logic;
   signal pl_sel_lnk_width               : std_logic_vector(1 downto 0);
-  signal sys_rst                        : std_logic;
   -- Wires used for external clocking connectivity
   signal  trn_tdst_rdy                       : std_logic;
   signal  trn_tdst_dsc                       : std_logic;
@@ -560,8 +617,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal  trn_rsrc_rdy                       : std_logic;
   signal  trn_rsrc_dsc                       : std_logic;
   signal  trn_rerrfwd                        : std_logic;
- -- signal  trn_rbar_hit                       : std_logic_vector(7 downto 0);
- signal trn_rbar_hit              : std_logic_vector(6 downto 0);
+  signal trn_rbar_hit              : std_logic_vector(6 downto 0);
   signal  cfg_rd_wr_done                     : std_logic;
   signal  trn_tstr                           : std_logic;
   signal  trn_tecrc_gen                      : std_logic;
@@ -594,8 +650,54 @@ function str(b: boolean) return string is
 	constant TCQ                  : time           := 1 ns;
 begin
 
+ transmiter_i : transmiter
+  port map (
+    user_clk               => user_clk,
+    user_reset             => user_reset,
+    user_lnk_up            => user_lnk_up,
 
+    s_axis_tx_tdata        => s_axis_tx_tdata,
+    s_axis_tx_tvalid       => s_axis_tx_tvalid,
+	 s_axis_tx_tready       => s_axis_tx_tready,
+	 s_axis_tx_tkeep        => s_axis_tx_tkeep,
+    s_axis_tx_tlast        => s_axis_tx_tlast,
+    s_axis_tx_tuser        => s_axis_tx_tuser,
 
+    trn_td                 => trn_td,
+    trn_tsof               => trn_tsof,
+    trn_teof               => trn_teof,
+    trn_tsrc_rdy           => trn_tsrc_rdy,
+    trn_tdst_rdy           => trn_tdst_rdy,
+    trn_tsrc_dsc           => trn_tsrc_dsc,
+    trn_trem(0)            => trn_trem(0),
+    trn_terrfwd            => trn_terrfwd,
+    trn_tstr               => '0',
+    trn_tecrc_gen          => '0'
+
+);    
+ receiver_i : receiver
+  port map (
+    user_clk               => user_clk,
+    user_reset             => user_reset,
+    user_lnk_up            => user_lnk_up,
+
+    m_axis_rx_tdata        => m_axis_rx_tdata,
+    m_axis_rx_tvalid       => m_axis_rx_tvalid,
+    m_axis_rx_tready       => m_axis_rx_tready,
+    m_axis_rx_tkeep        => m_axis_rx_tkeep,
+    m_axis_rx_tlast        => m_axis_rx_tlast,
+    m_axis_rx_tuser        => m_axis_rx_tuser,
+
+    trn_rd                 => trn_rd,
+    trn_rsof               => trn_rsof,
+    trn_reof               => trn_reof,
+    trn_rsrc_rdy           => trn_rsrc_rdy,
+    trn_rdst_rdy           => trn_rdst_rdy,
+    trn_rsrc_dsc           => trn_rsrc_dsc,
+    trn_rrem(0)            => trn_rrem(0),
+    trn_rerrfwd            => trn_rerrfwd,
+    trn_rbar_hit				=> trn_rbar_hit
+);    
 
   v7_pcie_i : v7_pcie  generic map(
           PL_FAST_TRAIN                         => str(PL_FAST_TRAIN),
@@ -925,214 +1027,6 @@ begin
 	trn_fc_pd 		<=   fc_pd;                                    
    trn_fc_ph      <=   fc_ph;                                     
    fc_sel         <=   trn_fc_sel;
-
-
-
-
---DWORD Reordering between AXI and TRN interface--
-
-  --gen_axis_txdata_64 : if (C_DBUS_WIDTH = 64) generate
-  --begin 
-      s_axis_tx_tdata <= trn_td(31 downto 0) & trn_td(63 downto 32);
-  --end generate;
-  
-  gen_axis_txdata_128 : if (C_DBUS_WIDTH = 128) generate
-  begin 
-      s_axis_tx_tdata <= trn_td(31 downto  0) & trn_td( 63 downto 32) &
-                         trn_td(95 downto 64) & trn_td(127 downto 96);
-  end generate;
-  
-  
-  --Coversion from trn_rem to s_axis_tkeep[7:0]--
-  
-  
-  gen_axis_tx_tkeep_64 : if (C_DBUS_WIDTH = 64) generate
-  begin
-  
-    CMB_STRB_MUX : process(trn_teof,trn_trem)
-    begin
-      if (trn_teof = '1' and trn_trem(0) = '0') then
-        s_axis_tx_tkeep <= X"0F";
-      else
-        s_axis_tx_tkeep <= X"FF";
-      end if;
-    end process;
-                       
-  end generate;
-  
-  
-  gen_axis_tx_tkeep_128 : if (C_DBUS_WIDTH = 128) generate
-  begin
-   
-    CMB_STRB_MUX : process(trn_teof,trn_trem)
-    begin
-      if trn_teof = '1' then
-        if trn_trem = "11" then
-          s_axis_tx_tkeep <= X"FFFF";
-        elsif trn_trem = "10" then
-          s_axis_tx_tkeep <= X"0FFF";
-        elsif trn_trem = "01" then
-          s_axis_tx_tkeep <= X"00FF";
-        else
-          s_axis_tx_tkeep <= X"000F";
-        end if;  
-      else
-        s_axis_tx_tkeep <= X"FFFF";
-      end if;
-    end process;
-    
-  end generate;
-  
-  
-  
-  --Connection of s_axis_tx_tuser with  trn_tsrc_dsc,trn_tstr,trn_terr_fwd and trn_terr_fwd
-  s_axis_tx_tuser(3) <= trn_tsrc_dsc; 
-  s_axis_tx_tuser(2) <= trn_tstr;
-  s_axis_tx_tuser(1) <= trn_terrfwd;
-  s_axis_tx_tuser(0) <= trn_tecrc_gen;
-  
-  --Constraint trn_tsrc_rdy. If constrained, testbench keep trn_tsrc_rdy constantly asserted. This makes axi bridge to generate trn_tsof immeditely after trn_teof of previous packet.--
-  
-   TRN_TSRC_RDY_DRVD : process(trn_tsof,trn_tsrc_rdy,trn_tdst_rdy_int,trn_teof,trn_tsrc_rdy_derived)
-   begin
-     
-       if (trn_tsof  = '1' and trn_tsrc_rdy = '1' and trn_tdst_rdy_int = '1' and trn_teof = '0') then
-         trn_tsrc_rdy_derived <= '1';
-       elsif (trn_tsrc_rdy_derived = '1' and trn_teof = '1' and trn_tsrc_rdy = '1' and trn_tdst_rdy_int = '1') then 
-         trn_tsrc_rdy_derived <= '0';
-       end if;
-   end process;
-  
-  s_axis_tx_tvalid <= trn_tsrc_rdy_derived or trn_tsof or trn_teof;
-  
-  trn_tdst_rdy         <= s_axis_tx_tready; -- add _i
-  trn_tdst_rdy_int     <= s_axis_tx_tready; -- add _i
-  --trn_tdst_rdy_int1	  <= s_axis_tx_tready;
-	
-  s_axis_tx_tlast      <= trn_teof;
-  
-  m_axis_rx_tready     <= trn_rdst_rdy;--POHOGE ZADERGKA
-  m_axis_rx_tready_int <= trn_rdst_rdy;
-  
-  --m_axis_rx_tready_int1 <= trn_rdst_rdy;
-    
-  
- 
-    trn_rd <= m_axis_rx_tdata( 31 downto  0) & m_axis_rx_tdata( 63 downto 32);
- 
-    
-  gen_trn_rd_128 : if (C_DBUS_WIDTH = 128) generate
-  begin
-    trn_rd <= m_axis_rx_tdata( 31 downto  0) & m_axis_rx_tdata( 63 downto 32) & 
-              m_axis_rx_tdata( 95 downto 64) & m_axis_rx_tdata(127 downto 96);
-  end generate;
-  
-  --Regenerate trn_rsof
-  --Used clock. Latency may have been added
-  
-  
-  --gen_trn_rsof_64 : if (C_DBUS_WIDTH = 64) generate
-  --begin
-  
-    in_pckt_register : process(user_clk)
-    begin
-      if rising_edge(user_clk) then
-        if user_reset = '1' then -- Add user_reset (_q)
-          in_packet_reg <= '0';
-        elsif (m_axis_rx_tvalid = '1' and m_axis_rx_tready = '1' and m_axis_rx_tready_int = '1') then -- DOBAVIL m_axis_rx_tready
-          in_packet_reg <= not(m_axis_rx_tlast);
-        end if;
-      end if;
-    end process;
-  
-    trn_rsof <= m_axis_rx_tvalid and not(in_packet_reg);
-  
- -- end generate;
-  
-  gen_trn_rsof_128 : if (C_DBUS_WIDTH = 128) generate
-  begin
-  
-    trn_rsof <= m_axis_rx_tuser(14);
-  
-  end generate;
-  
-  
-  
-  
- -- gen_trn_reof_64 : if (C_DBUS_WIDTH = 64) generate
- -- begin
-  
-    trn_reof <= m_axis_rx_tlast;
-  
- -- end generate;
-  
-  gen_trn_reof_128 : if (C_DBUS_WIDTH = 128) generate
-  begin
-  
-    trn_reof <= m_axis_rx_tuser(21); --is_eof(4);
-  
-  end generate;
-  
-  trn_rsrc_rdy <= m_axis_rx_tvalid;
-  
-  
-  --Regenerate trn_rsrc_dsc
-  --Used clock. Latency may have been added
-  trn_rsrc_dsc_reg : process(user_clk)
-  begin
-  
-    if rising_edge(user_clk) then
-      if user_reset = '1' then -- add _q
-        trn_rsrc_dsc <= '1';     
-      else
-        trn_rsrc_dsc <= not(user_lnk_up); -- add _q
-      end if;
-    end if;
-  end process;
-    
-  
-  is_sof <= m_axis_rx_tuser(14 downto 10);
-  is_eof <= m_axis_rx_tuser(21 downto 17);
-  
-  
-  --gen_trn_rrem_64 : if (C_DBUS_WIDTH = 64) generate
- -- begin
-                   
-    CMB_TRN_RREM : process(m_axis_rx_tlast,m_axis_rx_tkeep)
-    begin
-      if (m_axis_rx_tlast = '1') then
-        if ( m_axis_rx_tkeep = X"FF") then
-          trn_rrem(0) <= '1';
-        else
-          trn_rrem(0) <= '0';
-        end if;
-      else
-       trn_rrem(0) <= '1';
-      end if;
-    end process;                
-  --end generate;
-  
-  gen_trn_rrem_128 : if (C_DBUS_WIDTH = 128) generate
-  begin
-    
-    trn_rrem(0) <= is_eof(2);
-    
-    CMB_TRN_RREM : process(is_eof,is_sof)
-    begin
-      if (is_eof(4) = '1'  or is_sof(4) = '1') then
-      
-        trn_rrem(1) <= ((     is_sof(4 ) and      is_eof(4)  and      is_eof(3) ) or
-                        ((not is_sof(4)) and      is_eof(4)  and      is_eof(3) ) or
-                        (     is_sof(4)  and (not is_eof(4)) and (not is_sof(3))));
-      else
-        trn_rrem(1) <= '1';
-      end if;  
-    end process;      
-  end generate;  
-  
-  trn_rerrfwd <= m_axis_rx_tuser(1);
-
-trn_rbar_hit <= m_axis_rx_tuser(8 downto 2);
 
 end Behavioral; 
 

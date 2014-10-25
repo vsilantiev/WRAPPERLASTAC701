@@ -1,13 +1,60 @@
-Release 14.5 Drc P.58f (nt64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Sep 06 13:09:48 2014
+Sat Oct 25 00:59:07 2014
 
 drc -z v6pcieDMA.ncd v6pcieDMA.pcf
 
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   LoopBack_Off_UserLogic.pcie_userlogic_00_x0/top_level_1/user_logic_x0/chipsco
-   pe/control(13) is sourced by a combinatorial pin. This is not good design
-   practice. Use the CE pin to control the loading of data into the flip-flop.
-DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+   make4Lanes.pcieCore/transmiter_i/trn_tsrc_rdy_derived_G is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <trn_reset_n> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
+   _inst/NULL_RX_tkeep<6>> is incomplete. The signal does not drive any load
+   pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
+   _inst/NULL_RX_tkeep<5>> is incomplete. The signal does not drive any load
+   pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
+   _inst/NULL_RX_tkeep<4>> is incomplete. The signal does not drive any load
+   pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
+   _inst/NULL_RDST_RDY> is incomplete. The signal does not drive any load pins
+   in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_raddr<12>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_raddr<11>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_waddr<12>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_rx_waddr<11>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_raddr<12>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_raddr<11>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_waddr<12>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_waddr<11>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ad9467_1/delay_rst_s> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <theTlpControl/rx_Itf/Rx_Input_Delays/trn_rrem_n<0>> is incomplete. The
+   signal does not drive any load pins in the design.
+DRC detected 0 errors and 16 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
