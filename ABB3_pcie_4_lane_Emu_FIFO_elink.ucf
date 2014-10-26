@@ -144,10 +144,10 @@ NET "make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/pipe_clock_int.pipe_c
 NET "make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/pipe_clock_int.pipe_clock_i/userclk2" TIG;
 
 TIMESPEC TS_SYSCLK = PERIOD "SYSCLK" 100 MHz HIGH 50 %;
-TIMESPEC TS_CLK_125 = PERIOD "CLK_125" TS_SYSCLK * 1.25 HIGH 50 % PRIORITY 1;
-TIMESPEC TS_CLK_250 = PERIOD "CLK_250" TS_SYSCLK * 2.5 HIGH 50 % PRIORITY 2;
-TIMESPEC TS_CLK_USERCLK = PERIOD "CLK_USERCLK" TS_SYSCLK * 1.25 HIGH 50 %;
-TIMESPEC TS_CLK_USERCLK2 = PERIOD "CLK_USERCLK2" TS_SYSCLK * 1.25 HIGH 50 %;
+TIMESPEC TS_CLK_125 = PERIOD "CLK_125" TS_SYSCLK * 2.5 HIGH 50 % PRIORITY 1;
+TIMESPEC TS_CLK_250 = PERIOD "CLK_250" TS_SYSCLK * 1.25 HIGH 50 % PRIORITY 2;
+TIMESPEC TS_CLK_USERCLK = PERIOD "CLK_USERCLK" TS_SYSCLK * 2.5 HIGH 50 %;
+TIMESPEC TS_CLK_USERCLK2 = PERIOD "CLK_USERCLK2" TS_SYSCLK * 2.5 HIGH 50 %;
 
 INST "make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/pipe_clock_int.pipe_clock_i/mmcm_i" LOC = MMCME2_ADV_X0Y2;
 
@@ -171,8 +171,8 @@ NET "make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/qpll_reset.qpll_reset
 ###############################################################################
 # Physical Constraints
 ###############################################################################
-INST "make4Lanes.pcieCore/*" AREA_GROUP = "AG_core" ;
-AREA_GROUP "AG_core" RANGE = SLICE_X136Y147:SLICE_X155Y120 ;
+#INST "make4Lanes.pcieCore/*" AREA_GROUP = "AG_core" ;
+#AREA_GROUP "AG_core" RANGE = SLICE_X136Y147:SLICE_X155Y120 ;
 ########################################################################################################################
 # End PCIe Core Constraints
 #########################################################################################################################

@@ -1,16 +1,51 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Oct 25 00:59:07 2014
+Sun Oct 26 13:20:39 2014
 
 drc -z v6pcieDMA.ncd v6pcieDMA.pcf
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   make4Lanes.pcieCore/transmiter_i/trn_tsrc_rdy_derived_G is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<38>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<50>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<51>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<57>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<58>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<60>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<81>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<84>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<91>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<101>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<102>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<103>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<104>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<133>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<135>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ila0_trig0<136>> is incomplete. The
+   signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <trn_reset_n> is incomplete. The signal
    does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gtp_pipe_reset.gtp_pip
+   e_reset_i/RST_RXUSRCLK> is incomplete. The signal does not drive any load
+   pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
    _inst/NULL_RX_tkeep<6>> is incomplete. The signal does not drive any load
@@ -51,10 +86,8 @@ WARNING:PhysDesignRules:367 - The signal
 WARNING:PhysDesignRules:367 - The signal
    <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/pcie_7x_i/mim_tx_waddr<11>> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ad9467_1/delay_rst_s> is incomplete.
-   The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <theTlpControl/rx_Itf/Rx_Input_Delays/trn_rrem_n<0>> is incomplete. The
    signal does not drive any load pins in the design.
-DRC detected 0 errors and 16 warnings.  Please see the previously displayed
+DRC detected 0 errors and 32 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

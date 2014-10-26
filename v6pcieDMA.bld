@@ -2,15 +2,12 @@ Release 14.7 ngdbuild P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
--intstyle ise -dd _ngo -sd ipcore_dir_ISE13.3 -nt timestamp -uc
-ABB3_pcie_4_lane_Emu_FIFO_elink.ucf -p xc7a200t-fbg676-2 v6pcieDMA.ngc
+-intstyle ise -dd _ngo -sd ipcore_dir_ISE13.3 -sd ipcore_dir -nt timestamp -uc
+ABB3_pcie_4_lane_Emu_FIFO_elink.ucf -p xc7a200t-fbg676-2 v6pcieDMA_cs.ngc
 v6pcieDMA.ngd
 
 Reading NGO file
-"C:/Users/vsilantiev/Documents/LASTWAC701/WRAPPERLASTAC701/v6pcieDMA.ngc" ...
-Loading design module "ipcore_dir_ISE13.3/v6_mBuf_128x72.ngc"...
-Loading design module "ipcore_dir_ISE13.3/v6_sfifo_15x128.ngc"...
-Loading design module "ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.ngc"...
+"C:/Users/vsilantiev/Documents/LASTWAC701/WRAPPERLASTAC701/v6pcieDMA_cs.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -1162,8 +1159,6 @@ WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<2>' has
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<1>' has
    no driver
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<0>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tuser<2>' has
    no driver
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tuser<0>' has
    no driver
@@ -2938,12 +2933,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 1448
+  Number of warnings: 1447
 
-Total memory usage is 311648 kilobytes
+Total memory usage is 375340 kilobytes
 
 Writing NGD file "v6pcieDMA.ngd" ...
-Total REAL time to NGDBUILD completion:  41 sec
-Total CPU time to NGDBUILD completion:   37 sec
+Total REAL time to NGDBUILD completion:  44 sec
+Total CPU time to NGDBUILD completion:   42 sec
 
 Writing NGDBUILD log file "v6pcieDMA.bld"...

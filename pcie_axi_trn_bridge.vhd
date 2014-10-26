@@ -671,8 +671,8 @@ begin
     trn_tsrc_dsc           => trn_tsrc_dsc,
     trn_trem(0)            => trn_trem(0),
     trn_terrfwd            => trn_terrfwd,
-    trn_tstr               => '0',
-    trn_tecrc_gen          => '0'
+    trn_tstr               => trn_tstr,--'0',
+    trn_tecrc_gen          => trn_tecrc_gen--'0'
 
 );    
  receiver_i : receiver
