@@ -1,7 +1,6 @@
-module ADC_emul(
+module anyADC(
 					 	
 				    input trn_clk,
-
                 input adc_clk_in_p,
                 input adc_clk_in_n,
                 input delay_clk,
@@ -11,8 +10,6 @@ module ADC_emul(
                 input adc_data_or_n,
                 output bram_wr_din,
 					 output bram_wr_addr,
-				//	 output bram_wr_en,					 
-				//	 output fifo_re,
 					 input reg01_td,
 					 input reg01_tv,
 					 input reg02_td, 
@@ -41,7 +38,6 @@ module ADC_emul(
 					 input reg13_tv,
 					 input reg14_td, 
 					 input reg14_tv,
-
 					 output reg01_rd,
 					 output reg01_rv,
 					 output reg02_rd, 
@@ -73,14 +69,14 @@ module ADC_emul(
 					  
 					 
                 input reset,
-                output  strobe_adc,
+                output strobe_adc,
 					 output user_int_1o,
 					 output user_int_2o,
 					 output user_int_3o,
 					 output adcclock,
 					 
 					 
-					output 	fifowr_clk, 
+					output fifowr_clk, 
 					output fifowr_en ,  
 					output fifodin  ,   
 					input  fifofull ,   
@@ -130,32 +126,15 @@ parameter WIDTH=16;
 	 wire [31:0] reg12_td;
 	 wire reg12_tv;	 
 	 wire [31:0] reg13_td;
-	 wire reg13_tv;	 
-    
-	 
+	 wire reg13_tv;	 	 
 	 wire [31:0] reg14_td;
-	 wire reg14_tv;	   
-		
-		
-		
-	 wire strobe_adc;
-		
-		
-		
-//	 reg [31:0] r01_td;
-//	 reg 
-
-	 //   
+	 wire reg14_tv;	   	
+	 wire strobe_adc;  
 	 reg [31:0] strobe_counter;
 	 //   SOA
 	 reg [31:0]	soa_counter;
-	 
-	 
-	 //   
+  
 	 reg [31:0] reflength_counter;
-	 // --     
-	 // --    
-	 // --   -  
 	 reg [31:0] reg01_rd_current_reflength;
 	 reg [31:0] reg01_rd;
 	 reg reg01_rv;
@@ -204,16 +183,9 @@ parameter WIDTH=16;
 	 reg reg12_rv;
 	 reg [31:0] reg13_rd;
 	 reg reg13_rv;
-	 
-	 
 	 reg [31:0] reg14_rdCur = 'd0;
 	 reg [31:0] reg14_rd;
-	 reg reg14_rv;
-
-
-
-
-	 
+	 reg reg14_rv; 
    // wire up_dmode;
     //
     /*Input port clk*/
@@ -259,9 +231,9 @@ parameter WIDTH=16;
 	reg     [4:0]       adc_or_count = 'd0;
 	wire    [4:0]       delay_rdata [8:0];
 	wire                delay_rst_s;
-    wire                adc_or_idelay;
+   wire                adc_or_idelay;
     
-    wire            delay_preset_s;
+   wire            delay_preset_s;
 
     
 	//
@@ -270,7 +242,7 @@ parameter WIDTH=16;
 	wire    [7:0]       adc_data_p_s;
 	wire    [7:0]       adc_data_n_s;
 	wire                adc_or_p_s;
-    wire                adc_or_n_s;
+   wire                adc_or_n_s;
 	//
 	/*Output real data*/
 	//

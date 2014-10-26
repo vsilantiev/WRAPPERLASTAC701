@@ -29,7 +29,7 @@
     </file>
     <file xil_pn:name="MySource/FIFO_Wrapper.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="58"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="56"/>
     </file>
     <file xil_pn:name="MySource/Interrupts.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
@@ -37,7 +37,7 @@
     </file>
     <file xil_pn:name="MySource/Registers.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="18"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="54"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="52"/>
     </file>
     <file xil_pn:name="MySource/rx_CplD_Channel.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="12"/>
@@ -57,7 +57,7 @@
     </file>
     <file xil_pn:name="MySource/rx_Transact.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="17"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="53"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="51"/>
     </file>
     <file xil_pn:name="MySource/rx_usDMA_Channel.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="8"/>
@@ -69,7 +69,7 @@
     </file>
     <file xil_pn:name="MySource/tlpControl.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="19"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="57"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="55"/>
     </file>
     <file xil_pn:name="MySource/tx_Mem_Reader.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="7"/>
@@ -81,7 +81,7 @@
     </file>
     <file xil_pn:name="MySource/tx_Transact.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="16"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="52"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="50"/>
     </file>
     <file xil_pn:name="MySource/v6abb64Package_efifo_elink.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
@@ -89,11 +89,11 @@
     </file>
     <file xil_pn:name="MySource/v6eb_pcie.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="60"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="58"/>
     </file>
     <file xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.xco" xil_pn:type="FILE_COREGEN">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="55"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="53"/>
     </file>
     <file xil_pn:name="ipcore_dir_ISE13.3/v6_mBuf_128x72.xco" xil_pn:type="FILE_COREGEN">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
@@ -114,26 +114,11 @@
     </file>
     <file xil_pn:name="pcie_axi_trn_bridge.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="56"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="54"/>
     </file>
     <file xil_pn:name="Emul.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="59"/>
-    </file>
-    <file xil_pn:name="transmiter.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="138"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="50"/>
-    </file>
-    <file xil_pn:name="receiver.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="142"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="51"/>
-    </file>
-    <file xil_pn:name="scopetx.cdc" xil_pn:type="FILE_CDC">
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-    </file>
-    <file xil_pn:name="ipcore_dir/v7_pcie.xco" xil_pn:type="FILE_COREGEN">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="140"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="57"/>
     </file>
     <file xil_pn:name="v7_pcie.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="145"/>
@@ -271,9 +256,6 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="178"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
     </file>
-    <file xil_pn:name="ipcore_dir/v7_pcie.xise" xil_pn:type="FILE_COREGENISE">
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-    </file>
   </files>
 
   <properties>
@@ -343,10 +325,10 @@
     <property xil_pn:name="Do Not Escape Signal and Instance Names in Netlist" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Done (Output Events)" xil_pn:value="Default (4)" xil_pn:valueState="default"/>
     <property xil_pn:name="Drive Done Pin High" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Enable BitStream Compression" xil_pn:value="false" xil_pn:valueState="default"/>
+    <property xil_pn:name="Enable BitStream Compression" xil_pn:value="true" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Enable Cyclic Redundancy Checking (CRC)" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Debugging of Serial Mode BitStream" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Enable External Master Clock" xil_pn:value="Disable" xil_pn:valueState="default"/>
+    <property xil_pn:name="Enable External Master Clock" xil_pn:value="Divide by 1" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Enable Hardware Co-Simulation" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Internal Done Pipe" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Message Filtering" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -447,7 +429,7 @@
     <property xil_pn:name="Optimization Effort virtex6" xil_pn:value="Normal" xil_pn:valueState="default"/>
     <property xil_pn:name="Optimization Goal" xil_pn:value="Speed" xil_pn:valueState="default"/>
     <property xil_pn:name="Optimize Instantiated Primitives" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Other Bitgen Command Line Options" xil_pn:value="" xil_pn:valueState="default"/>
+    <property xil_pn:name="Other Bitgen Command Line Options" xil_pn:value="-g spi_opcode:0x6B" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Other Compiler Options" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Other Compiler Options Fit" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Other Compiler Options Map" xil_pn:value="" xil_pn:valueState="default"/>
@@ -535,7 +517,7 @@
     <property xil_pn:name="Selected Simulation Root Source Node Post-Route" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Selected Simulation Root Source Node Post-Translate" xil_pn:value="work.tf64_pcie_trn" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Selected Simulation Source Node" xil_pn:value="UUT" xil_pn:valueState="default"/>
-    <property xil_pn:name="Set SPI Configuration Bus Width" xil_pn:value="1" xil_pn:valueState="default"/>
+    <property xil_pn:name="Set SPI Configuration Bus Width" xil_pn:value="4" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Shift Register Extraction" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Shift Register Minimum Size virtex6" xil_pn:value="2" xil_pn:valueState="default"/>
     <property xil_pn:name="Show All Models" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -581,7 +563,7 @@
     <property xil_pn:name="Use DSP Block" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use LOC Constraints" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Use RLOC Constraints" xil_pn:value="Yes" xil_pn:valueState="default"/>
-    <property xil_pn:name="Use SPI Falling Edge" xil_pn:value="No" xil_pn:valueState="default"/>
+    <property xil_pn:name="Use SPI Falling Edge" xil_pn:value="Yes" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Use Smart Guide" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synchronous Reset" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synchronous Set" xil_pn:value="Auto" xil_pn:valueState="default"/>

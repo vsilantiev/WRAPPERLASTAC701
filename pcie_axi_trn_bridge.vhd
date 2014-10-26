@@ -72,12 +72,12 @@ library UNISIM;
 use UNISIM.VComponents.all;
 entity v6_pcie_v1_7_x4 is
   generic(
-	 PL_FAST_TRAIN          : boolean := FALSE--string := "FALSE";
-);
+	 PL_FAST_TRAIN          : boolean := FALSE
+  );
   port
   (
   
-     ---------------------------------------------------------
+    ---------------------------------------------------------
     -- 1. PCI Express (pci_exp) Interface
     ---------------------------------------------------------
 
@@ -101,11 +101,11 @@ entity v6_pcie_v1_7_x4 is
     -- Tx                      
     trn_tsof_n                     : in  STD_LOGIC; 
     trn_teof_n                     : in  STD_LOGIC; 
-    trn_td                         : in  STD_LOGIC_vector (64-1 downto 0); 
+    trn_td                         : in  STD_LOGIC_vector (63 downto 0); 
     trn_trem_n                     : in  std_logic; 
     trn_tsrc_rdy_n                 : in  STD_LOGIC; 
     trn_tsrc_dsc_n                 : in  STD_LOGIC; 
-    trn_tbuf_av                    : out STD_LOGIC_vector (6-1 downto 0); 
+    trn_tbuf_av                    : out STD_LOGIC_vector (5 downto 0); 
     trn_terrfwd_n                  : in  STD_LOGIC; 
 
     trn_tcfg_req_n                 : out STD_LOGIC;
@@ -113,39 +113,37 @@ entity v6_pcie_v1_7_x4 is
     trn_tdst_rdy_n                 : out STD_LOGIC; 
     trn_tcfg_gnt_n                 : in  STD_LOGIC; 
     trn_tstr_n                     : in  STD_LOGIC; 
-	 
 	
     -- Rx                      
-    trn_rd                         : out STD_LOGIC_vector (64-1 downto 0); 
+    trn_rd                         : out STD_LOGIC_vector (63 downto 0); 
     trn_rrem_n                     : out  std_logic; 
     trn_rsof_n                     : out STD_LOGIC; 
     trn_reof_n                     : out STD_LOGIC; 
     trn_rsrc_rdy_n                 : out STD_LOGIC; 
     trn_rsrc_dsc_n                 : out STD_LOGIC; 
     trn_rerrfwd_n                  : out STD_LOGIC; 
-    trn_rbar_hit_n                 : out STD_LOGIC_vector (7-1 downto 0); 
+    trn_rbar_hit_n                 : out STD_LOGIC_vector (6 downto 0); 
     trn_rdst_rdy_n                 : in  STD_LOGIC; 
     trn_rnp_ok_n                   : in  STD_LOGIC; 
 
     -- Flow Control            
-    trn_fc_cpld                    : out STD_LOGIC_vector (12-1 downto 0); 
-    trn_fc_cplh                    : out STD_LOGIC_vector (8-1 downto 0); 
-    trn_fc_npd                     : out STD_LOGIC_vector (12-1 downto 0); 
-    trn_fc_nph                     : out STD_LOGIC_vector (8-1 downto 0); 
-    trn_fc_pd                      : out STD_LOGIC_vector (12-1 downto 0); 
-    trn_fc_ph                      : out STD_LOGIC_vector (8-1 downto 0); 
-    trn_fc_sel                     : in  STD_LOGIC_vector (3-1 downto 0); 
+    trn_fc_cpld                    : out STD_LOGIC_vector (11 downto 0); 
+    trn_fc_cplh                    : out STD_LOGIC_vector (7 downto 0); 
+    trn_fc_npd                     : out STD_LOGIC_vector (11 downto 0); 
+    trn_fc_nph                     : out STD_LOGIC_vector (7 downto 0); 
+    trn_fc_pd                      : out STD_LOGIC_vector (11 downto 0); 
+    trn_fc_ph                      : out STD_LOGIC_vector (7 downto 0); 
+    trn_fc_sel                     : in  STD_LOGIC_vector (2 downto 0); 
                                
-
     ---------------------------------------------------------
     -- 3. Configuration (CFG) Interface
     ---------------------------------------------------------
 
-    cfg_do                         : out STD_LOGIC_vector (32-1 downto 0); 
+    cfg_do                         : out STD_LOGIC_vector (31 downto 0); 
     cfg_rd_wr_done_n               : out STD_LOGIC; 
-    cfg_di                         : in  STD_LOGIC_vector (32-1 downto 0); 
-    cfg_byte_en_n                  : in  STD_LOGIC_vector (4-1 downto 0); 
-    cfg_dwaddr                     : in  STD_LOGIC_vector (10-1 downto 0); 
+    cfg_di                         : in  STD_LOGIC_vector (31 downto 0); 
+    cfg_byte_en_n                  : in  STD_LOGIC_vector (3 downto 0); 
+    cfg_dwaddr                     : in  STD_LOGIC_vector (9 downto 0); 
     cfg_wr_en_n                    : in  STD_LOGIC; 
     cfg_rd_en_n                    : in  STD_LOGIC; 
 
@@ -157,14 +155,14 @@ entity v6_pcie_v1_7_x4 is
     cfg_err_cpl_unexpect_n         : in  STD_LOGIC; 
     cfg_err_posted_n               : in  STD_LOGIC; 
     cfg_err_locked_n               : in  STD_LOGIC; 
-    cfg_err_tlp_cpl_header         : in  STD_LOGIC_vector (48-1 downto 0); 
+    cfg_err_tlp_cpl_header         : in  STD_LOGIC_vector (47 downto 0); 
     cfg_err_cpl_rdy_n              : out STD_LOGIC; 
     cfg_interrupt_n                : in  STD_LOGIC; 
     cfg_interrupt_rdy_n            : out STD_LOGIC; 
     cfg_interrupt_assert_n         : in  STD_LOGIC; 
-    cfg_interrupt_di               : in  STD_LOGIC_vector (8-1 downto 0); 
-    cfg_interrupt_do               : out STD_LOGIC_vector (8-1 downto 0); 
-    cfg_interrupt_mmenable         : out STD_LOGIC_vector (3-1 downto 0); 
+    cfg_interrupt_di               : in  STD_LOGIC_vector (7 downto 0); 
+    cfg_interrupt_do               : out STD_LOGIC_vector (7 downto 0); 
+    cfg_interrupt_mmenable         : out STD_LOGIC_vector (2 downto 0); 
     cfg_interrupt_msienable        : out STD_LOGIC; 
     cfg_interrupt_msixenable       : out STD_LOGIC; 
     cfg_interrupt_msixfm           : out STD_LOGIC; 
@@ -172,43 +170,40 @@ entity v6_pcie_v1_7_x4 is
     cfg_to_turnoff_n               : out STD_LOGIC; 
     cfg_trn_pending_n              : in  STD_LOGIC; 
     cfg_pm_wake_n                  : in  STD_LOGIC; 
-    cfg_bus_number                 : out STD_LOGIC_vector (8-1 downto 0); 
-    cfg_device_number              : out STD_LOGIC_vector (5-1 downto 0); 
-    cfg_function_number            : out STD_LOGIC_vector (3-1 downto 0); 
-    cfg_status                     : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_command                    : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_dstatus                    : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_dcommand                   : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_lstatus                    : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_lcommand                   : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_dcommand2                  : out STD_LOGIC_vector (16-1 downto 0); 
-    cfg_pcie_link_state_n          : out STD_LOGIC_vector (3-1 downto 0); 
-    cfg_dsn                        : in  STD_LOGIC_vector (64-1 downto 0); 
+    cfg_bus_number                 : out STD_LOGIC_vector (7 downto 0); 
+    cfg_device_number              : out STD_LOGIC_vector (4 downto 0); 
+    cfg_function_number            : out STD_LOGIC_vector (2 downto 0); 
+    cfg_status                     : out STD_LOGIC_vector (15 downto 0); 
+    cfg_command                    : out STD_LOGIC_vector (15 downto 0); 
+    cfg_dstatus                    : out STD_LOGIC_vector (15 downto 0); 
+    cfg_dcommand                   : out STD_LOGIC_vector (15 downto 0); 
+    cfg_lstatus                    : out STD_LOGIC_vector (15 downto 0); 
+    cfg_lcommand                   : out STD_LOGIC_vector (15 downto 0); 
+    cfg_dcommand2                  : out STD_LOGIC_vector (15 downto 0); 
+    cfg_pcie_link_state_n          : out STD_LOGIC_vector (2 downto 0); 
+    cfg_dsn                        : in  STD_LOGIC_vector (63 downto 0); 
     cfg_pmcsr_pme_en               : out STD_LOGIC; 
     cfg_pmcsr_pme_status           : out STD_LOGIC; 
-    cfg_pmcsr_powerstate           : out STD_LOGIC_vector (2-1 downto 0); 
---S v1.3 --> 1.6    lnk_clk_en     : out STD_LOGIC; 
---	 lnk_clk_en     					  : out STD_LOGIC; 
+    cfg_pmcsr_powerstate           : out STD_LOGIC_vector (1 downto 0); 
 
     ---------------------------------------------------------
     -- 4. Physical Layer Control and Status (PL) Interface
     ---------------------------------------------------------
 
-    pl_initial_link_width          : out STD_LOGIC_vector (3-1 downto 0);
-    pl_lane_reversal_mode          : out STD_LOGIC_vector (2-1 downto 0);
+    pl_initial_link_width          : out STD_LOGIC_vector (2 downto 0);
+    pl_lane_reversal_mode          : out STD_LOGIC_vector (1 downto 0);
     pl_link_gen2_capable           : out STD_LOGIC;
     pl_link_partner_gen2_supported : out STD_LOGIC;
     pl_link_upcfg_capable          : out STD_LOGIC;
-    pl_ltssm_state                 : out STD_LOGIC_vector (6-1 downto 0);
+    pl_ltssm_state                 : out STD_LOGIC_vector (5 downto 0);
     pl_received_hot_rst            : out STD_LOGIC;
     pl_sel_link_rate               : out STD_LOGIC;
-    pl_sel_link_width              : out STD_LOGIC_vector (2-1 downto 0);
+    pl_sel_link_width              : out STD_LOGIC_vector (1 downto 0);
     pl_directed_link_auton         : in  STD_LOGIC;
-    pl_directed_link_change        : in  STD_LOGIC_vector (2-1 downto 0);
+    pl_directed_link_change        : in  STD_LOGIC_vector (1 downto 0);
     pl_directed_link_speed         : in  STD_LOGIC;
-    pl_directed_link_width         : in  STD_LOGIC_vector (2-1 downto 0);
+    pl_directed_link_width         : in  STD_LOGIC_vector (1 downto 0);
     pl_upstream_prefer_deemph      : in  STD_LOGIC;
-
 
     ---------------------------------------------------------
     -- 5. System  (SYS) Interface
@@ -222,73 +217,17 @@ entity v6_pcie_v1_7_x4 is
 end v6_pcie_v1_7_x4; 
 
 architecture Behavioral of v6_pcie_v1_7_x4 is
-
-   component transmiter
-  port (
-    user_clk               : in  std_logic;
-    user_reset             : in  std_logic;
-    user_lnk_up            : in  std_logic;
-
-    s_axis_tx_tdata        : out std_logic_vector(64-1 downto 0);
-    s_axis_tx_tvalid       : out std_logic;
-    s_axis_tx_tready       : in  std_logic;
-    s_axis_tx_tkeep        : out std_logic_vector((64/8)-1 downto 0);
-    s_axis_tx_tlast        : out std_logic;
-    s_axis_tx_tuser        : out std_logic_vector( 3 downto 0);
-
-
-    trn_td                 : in  std_logic_vector(64-1 downto 0);
-    trn_tsof               : in  std_logic;
-    trn_teof               : in  std_logic;
-    trn_tsrc_rdy           : in  std_logic;
-    trn_tdst_rdy           : out std_logic;
-    trn_tsrc_dsc           : in  std_logic;
-    trn_trem               : in  std_logic_vector(0 downto 0);
-    trn_terrfwd            : in  std_logic;
-    trn_tstr               : in  std_logic;
-    trn_tecrc_gen          : in  std_logic
-
-  );
-  end component;
-
-   component receiver
-  port (
-    user_clk               : in  std_logic;
-    user_reset             : in  std_logic;
-    user_lnk_up            : in  std_logic;
-
-    m_axis_rx_tdata        : in  std_logic_vector(64-1 downto 0);
-    m_axis_rx_tvalid       : in  std_logic;
-    m_axis_rx_tready       : out std_logic;
-    m_axis_rx_tkeep        : in  std_logic_vector((64/8)-1 downto 0);
-    m_axis_rx_tlast        : in  std_logic;
-    m_axis_rx_tuser        : in  std_logic_vector(21 downto 0);
-
-    trn_rd                 : out std_logic_vector(64-1 downto 0);
-    trn_rsof               : out std_logic;
-    trn_reof               : out std_logic;
-    trn_rsrc_rdy           : out std_logic;
-    trn_rdst_rdy           : in  std_logic;
-    trn_rsrc_dsc           : out std_logic;
-    trn_rrem               : out std_logic_vector(0 downto 0);
-    trn_rerrfwd            : out std_logic;
-	 trn_rbar_hit           : out std_logic_vector(6 downto 0)
-
-  );
-  end component;
-
-
-
-
-   component v7_pcie    generic (
+  component v7_pcie    generic (
            PL_FAST_TRAIN                              : string := "FALSE";
 			  PCIE_EXT_CLK                               : string := "FALSE";
 			  UPSTREAM_FACING                            : string := "TRUE"
     );
     port (
+	 
      -------------------------------------------------------------------------------------------------------------------
      -- 1. PCI Express (pci_exp) Interface                                                                            --
      -------------------------------------------------------------------------------------------------------------------
+	  
       pci_exp_txp                                : out std_logic_vector(3 downto 0);
       pci_exp_txn                                : out std_logic_vector(3 downto 0);
       pci_exp_rxp                                : in std_logic_vector(3 downto 0);
@@ -297,6 +236,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      -------------------------------------------------------------------------------------------------------------------
      -- 2. Clocking Interface                                                                                         --
      -------------------------------------------------------------------------------------------------------------------
+	  
       PIPE_PCLK_IN                               : in std_logic;
       PIPE_RXUSRCLK_IN                           : in std_logic;
       PIPE_RXOUTCLK_IN                           : in std_logic_vector(3 downto 0);
@@ -314,6 +254,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      -------------------------------------------------------------------------------------------------------------------
      -- 3. AXI-S Interface                                                                                            --
      -------------------------------------------------------------------------------------------------------------------
+	  
       -- Common
       user_clk_out                               : out std_logic;
       user_reset_out                             : out std_logic;
@@ -356,6 +297,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      ---------------------------------------------------------------------
       -- EP and RP                                                      --
      ---------------------------------------------------------------------
+	  
       cfg_mgmt_do                                : out std_logic_vector (31 downto 0);
       cfg_mgmt_rd_wr_done                        : out std_logic;
 
@@ -410,6 +352,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      ---------------------------------------------------------------------
       -- EP Only                                                        --
      ---------------------------------------------------------------------
+	  
       cfg_interrupt                              : in std_logic;
       cfg_interrupt_rdy                          : out std_logic;
       cfg_interrupt_assert                       : in std_logic;
@@ -431,6 +374,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      ---------------------------------------------------------------------
       -- RP Only                                                        --
      ---------------------------------------------------------------------
+	  
       cfg_pm_send_pme_to                         : in std_logic;
       cfg_ds_bus_number                          : in std_logic_vector(7 downto 0);
       cfg_ds_device_number                       : in std_logic_vector(4 downto 0);
@@ -472,6 +416,7 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      -------------------------------------------------------------------------------------------------------------------
      -- 5. Physical Layer Control and Status (PL) Interface                                                           --
      -------------------------------------------------------------------------------------------------------------------
+	  
       pl_directed_link_change                    : in std_logic_vector(1 downto 0);
       pl_directed_link_width                     : in std_logic_vector(1 downto 0);
       pl_directed_link_speed                     : in std_logic;
@@ -497,24 +442,31 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
      ---------------------------------------------------------------------
       -- EP Only                                                        --
      ---------------------------------------------------------------------
+	  
       pl_received_hot_rst                        : out std_logic;
+		
      ---------------------------------------------------------------------
       -- RP Only                                                        --
      ---------------------------------------------------------------------
+	  
       pl_transmit_hot_rst                        : in std_logic;
       pl_downstream_deemph_source                : in std_logic;
+		
      -------------------------------------------------------------------------------------------------------------------
      -- 6. AER interface                                                                                              --
      -------------------------------------------------------------------------------------------------------------------
+	  
       cfg_err_aer_headerlog                      : in std_logic_vector(127 downto 0);
       cfg_aer_interrupt_msgnum                   : in std_logic_vector(4 downto 0);
       cfg_err_aer_headerlog_set                  : out std_logic;
       cfg_aer_ecrc_check_en                      : out std_logic;
       cfg_aer_ecrc_gen_en                        : out std_logic;
+		
      -------------------------------------------------------------------------------------------------------------------
      -- 7. VC interface                                                                                               --
      -------------------------------------------------------------------------------------------------------------------
-      cfg_vc_tcvc_map                            : out std_logic_vector(6 downto 0);
+      
+		cfg_vc_tcvc_map                            : out std_logic_vector(6 downto 0);
 
      -------------------------------------------------------------------------------------------------------------------
      -- 8. System(SYS) Interface                                                                                      --
@@ -629,86 +581,34 @@ architecture Behavioral of v6_pcie_v1_7_x4 is
   signal  trn_terrfwd                        : std_logic;
   signal  trn_rnp_ok                         : std_logic;
   signal  trn_rdst_rdy                       : std_logic;
-  signal is_sof : std_logic_vector(4 downto 0);
-  signal is_eof : std_logic_vector(4 downto 0); 
-  signal trn_tdst_rdy_int     : std_logic;
-  signal trn_tsrc_rdy_derived : std_logic := '0';
-  signal in_packet_reg        : std_logic;
-  signal m_axis_rx_tready_int : std_logic;
   
+  signal  is_sof : std_logic_vector(4 downto 0);
+  signal  is_eof : std_logic_vector(4 downto 0); 
+  signal  in_packet_reg        : std_logic;
+   
 function str(b: boolean) return string is
-
-    begin
-       if b then
-          return "TRUE";
-      else
-        return "FALSE";
-       end if;
+  begin
+    if b then
+       return "TRUE";
+    else
+       return "FALSE";
+    end if;
     end str;
-  	constant		  PCIE_EXT_CLK                               : string := "FALSE";
-	constant		  UPSTREAM_FACING                            : string := "TRUE";
-	constant TCQ                  : time           := 1 ns;
+  
+  constant		  PCIE_EXT_CLK                               : string := "FALSE";
+  constant		  UPSTREAM_FACING                            : string := "TRUE";
+
 begin
-
- transmiter_i : transmiter
-  port map (
-    user_clk               => user_clk,
-    user_reset             => user_reset,
-    user_lnk_up            => user_lnk_up,
-
-    s_axis_tx_tdata        => s_axis_tx_tdata,
-    s_axis_tx_tvalid       => s_axis_tx_tvalid,
-	 s_axis_tx_tready       => s_axis_tx_tready,
-	 s_axis_tx_tkeep        => s_axis_tx_tkeep,
-    s_axis_tx_tlast        => s_axis_tx_tlast,
-    s_axis_tx_tuser        => s_axis_tx_tuser,
-
-    trn_td                 => trn_td,
-    trn_tsof               => trn_tsof,
-    trn_teof               => trn_teof,
-    trn_tsrc_rdy           => trn_tsrc_rdy,
-    trn_tdst_rdy           => trn_tdst_rdy,
-    trn_tsrc_dsc           => trn_tsrc_dsc,
-    trn_trem(0)            => trn_trem(0),
-    trn_terrfwd            => trn_terrfwd,
-    trn_tstr               => trn_tstr,--'0',
-    trn_tecrc_gen          => trn_tecrc_gen--'0'
-
-);    
- receiver_i : receiver
-  port map (
-    user_clk               => user_clk,
-    user_reset             => user_reset,
-    user_lnk_up            => user_lnk_up,
-
-    m_axis_rx_tdata        => m_axis_rx_tdata,
-    m_axis_rx_tvalid       => m_axis_rx_tvalid,
-    m_axis_rx_tready       => m_axis_rx_tready,
-    m_axis_rx_tkeep        => m_axis_rx_tkeep,
-    m_axis_rx_tlast        => m_axis_rx_tlast,
-    m_axis_rx_tuser        => m_axis_rx_tuser,
-
-    trn_rd                 => trn_rd,
-    trn_rsof               => trn_rsof,
-    trn_reof               => trn_reof,
-    trn_rsrc_rdy           => trn_rsrc_rdy,
-    trn_rdst_rdy           => trn_rdst_rdy,
-    trn_rsrc_dsc           => trn_rsrc_dsc,
-    trn_rrem(0)            => trn_rrem(0),
-    trn_rerrfwd            => trn_rerrfwd,
-    trn_rbar_hit				=> trn_rbar_hit
-);    
-
   v7_pcie_i : v7_pcie  generic map(
-          PL_FAST_TRAIN                         => str(PL_FAST_TRAIN),
-      PCIE_EXT_CLK                          => PCIE_EXT_CLK,
-		UPSTREAM_FACING => UPSTREAM_FACING
-		
-      )
+          PL_FAST_TRAIN                     => str(PL_FAST_TRAIN),
+			 PCIE_EXT_CLK                      => PCIE_EXT_CLK,
+		    UPSTREAM_FACING 						  => UPSTREAM_FACING	
+  )
   port map(
   -------------------------------------------------------------------------------------------------------------------
   -- 1. PCI Express (pci_exp) Interface                                                                            --
   -------------------------------------------------------------------------------------------------------------------
+  
   -- TX
   pci_exp_txp                               => pci_exp_txp,
   pci_exp_txn                               => pci_exp_txn,
@@ -736,6 +636,7 @@ begin
   -------------------------------------------------------------------------------------------------------------------
   -- 3. AXI-S Interface                                                                                            --
   -------------------------------------------------------------------------------------------------------------------
+  
   -- Common
   user_clk_out                               => user_clk ,
   user_reset_out                             => user_reset,
@@ -892,6 +793,7 @@ begin
   -------------------------------------------------------------------------------------------------------------------
   -- 5. Physical Layer Control and Status (PL) Interface                                                           --
   -------------------------------------------------------------------------------------------------------------------
+  
   pl_directed_link_auton                     => pl_directed_link_auton ,
   pl_directed_link_change                    => pl_directed_link_change ,
   pl_directed_link_speed                     => pl_directed_link_speed ,
@@ -919,17 +821,20 @@ begin
   ---------------------------------------------------------------------
    -- EP Only                                                        --
   ---------------------------------------------------------------------
+  
   pl_received_hot_rst                        => pl_received_hot_rst ,
 
   ---------------------------------------------------------------------
    -- RP Only                                                        --
   ---------------------------------------------------------------------
+  
   pl_transmit_hot_rst                        => '0' ,
   pl_downstream_deemph_source                => '0' ,
 
   -------------------------------------------------------------------------------------------------------------------
   -- 6. AER interface                                                                                              --
   -------------------------------------------------------------------------------------------------------------------
+  
   cfg_err_aer_headerlog                      => cfg_err_aer_headerlog ,
   cfg_aer_interrupt_msgnum                   => cfg_aer_interrupt_msgnum ,
   cfg_err_aer_headerlog_set                  => cfg_err_aer_headerlog_set ,
@@ -939,72 +844,54 @@ begin
   -------------------------------------------------------------------------------------------------------------------
   -- 7. VC interface                                                                                               --
   -------------------------------------------------------------------------------------------------------------------
+  
   cfg_vc_tcvc_map                            => open ,
 
 
   -------------------------------------------------------------------------------------------------------------------
   -- 8. System(SYS) Interface                                                                                      --
   -------------------------------------------------------------------------------------------------------------------
+  
   PIPE_MMCM_RST_N                            => '1',        -- Async      | Async
-  sys_clk                                    => sys_clk,--sys_clk ,
+  sys_clk                                    => sys_clk,
   sys_rst_n                                  => sys_reset_n
 
 );
 
-
-  tx_cfg_gnt <= not trn_tcfg_gnt_n;	-- IN NOT SIGNAL
-
-  trn_clk		<= user_clk;
-  trn_reset_n <= not user_reset;
-  trn_lnk_up_n <= not user_lnk_up;
-
-  trn_trem(0)					<= not trn_trem_n;
-  trn_rrem_n				<= not trn_rrem(0);
-  
-  trn_tsof              <= not trn_tsof_n; --   trn_tsof(SIGNAL EST ISPOLZET MODUL)  <= trn_sof_n(SIGNAL NENUGEN) IN BRIDGE
-  trn_teof              <= not trn_teof_n; --	trn_teof(ZADAET TKEEP)					<=	 trn_teof_n(SIGNAL NENUGEN) IN BRIDGE
-  trn_rsof_n            <= not trn_rsof;
-  trn_reof_n            <= not trn_reof;
-  
-  trn_tsrc_rdy          <= not trn_tsrc_rdy_n; -- in <= out
-  trn_rsrc_rdy_n        <= not trn_rsrc_rdy;
-
-
-  trn_tsrc_dsc          <= not trn_tsrc_dsc_n; -- in bridge <= out tlp
-  trn_rsrc_dsc_n        <= not trn_rsrc_dsc;
-
-  trn_terrfwd           <= not trn_terrfwd_n;
-  trn_rerrfwd_n         <= not trn_rerrfwd;
-
-  trn_rdst_rdy          <= not trn_rdst_rdy_n;
-  trn_tdst_rdy_n        <= not trn_tdst_rdy; -- c моста in tlp <= out bridge
-
-  trn_rnp_ok            <= not trn_rnp_ok_n;
-  rx_np_ok					<= trn_rnp_ok;
-
+  tx_cfg_gnt 				 <= not trn_tcfg_gnt_n;	
+  trn_clk					 <= user_clk;
+  trn_reset_n 				 <= not user_reset;
+  trn_lnk_up_n 			 <= not user_lnk_up;
+  trn_trem(0)				 <= not trn_trem_n;
+  trn_rrem_n				 <= not trn_rrem(0);  
+  trn_tsof               <= not trn_tsof_n; 
+  trn_teof               <= not trn_teof_n; 
+  trn_rsof_n             <= not trn_rsof;
+  trn_reof_n             <= not trn_reof;  
+  trn_tsrc_rdy           <= not trn_tsrc_rdy_n; -- in <= out
+  trn_rsrc_rdy_n         <= not trn_rsrc_rdy;
+  trn_tsrc_dsc           <= not trn_tsrc_dsc_n; -- in bridge <= out tlp
+  trn_rsrc_dsc_n         <= not trn_rsrc_dsc;
+  trn_terrfwd            <= not trn_terrfwd_n;
+  trn_rerrfwd_n          <= not trn_rerrfwd;
+  trn_rdst_rdy           <= not trn_rdst_rdy_n;
+  trn_tdst_rdy_n         <= not trn_tdst_rdy; 
+  trn_rnp_ok             <= not trn_rnp_ok_n;
+  rx_np_ok					 <= trn_rnp_ok;
    trn_rbar_hit_n        <=  not trn_rbar_hit(6) &
                              not trn_rbar_hit(5) & not trn_rbar_hit(4) &
                              not trn_rbar_hit(3) & not trn_rbar_hit(2) &
                              not trn_rbar_hit(1) & not trn_rbar_hit(0);
-
-
    cfg_pcie_link_state_n <= not cfg_pcie_link_state(2) & not cfg_pcie_link_state(1) & not cfg_pcie_link_state(0);
-
    cfg_mgmt_byte_en      <= not cfg_byte_en_n(3) & not cfg_byte_en_n(2) & not cfg_byte_en_n(1) & not cfg_byte_en_n(0);
    cfg_mgmt_wr_en        <= not cfg_wr_en_n;
    cfg_mgmt_rd_en        <= not cfg_rd_en_n;
 	cfg_mgmt_di				 <= cfg_di;
 	cfg_mgmt_dwaddr		 <= cfg_dwaddr;
-
-
 	cfg_interrupt         <= not cfg_interrupt_n;
    cfg_turnoff_ok        <= not cfg_turnoff_ok_n;
-
    cfg_interrupt_rdy_n   <= not cfg_interrupt_rdy;
-  
-   cfg_interrupt_assert <= not cfg_interrupt_assert_n;
-	
-	
+   cfg_interrupt_assert  <= not cfg_interrupt_assert_n;
    cfg_err_ecrc          <= not cfg_err_ecrc_n; -- in <= out
    cfg_err_ur            <= not cfg_err_ur_n;
    cfg_err_cpl_timeout   <= not cfg_err_cpl_timeout_n;
@@ -1015,18 +902,95 @@ begin
 	cfg_err_locked			 <= not cfg_err_locked_n;
 	cfg_trn_pending       <= not cfg_trn_pending_n;
 	cfg_pm_wake           <= not cfg_pm_wake_n;
-	trn_tstr					<= not trn_tstr_n;
-   trn_tbuf_av				<= tx_buf_av; -- trn_tbuf_av(FOR TLP OUT SIGNAL NENUGEN) <= tx_buf_av(EST SIGNAL PRIHODIT IZ PCI)
-	
+	trn_tstr					 <= not trn_tstr_n;
+   trn_tbuf_av				 <= tx_buf_av; 	
 	cfg_rd_wr_done_n      <= not cfg_rd_wr_done;
 	cfg_to_turnoff_n      <= not cfg_to_turnoff;
-   trn_fc_cpld    <=   fc_cpld;                          
-   trn_fc_cplh    <=   fc_cplh;                             
-   trn_fc_npd     <=   fc_npd;                             
-   trn_fc_nph     <=   fc_nph;                           
-	trn_fc_pd 		<=   fc_pd;                                    
-   trn_fc_ph      <=   fc_ph;                                     
-   fc_sel         <=   trn_fc_sel;
+   trn_fc_cpld    		 <=   fc_cpld;                          
+   trn_fc_cplh    		 <=   fc_cplh;                             
+   trn_fc_npd    			 <=   fc_npd;                             
+   trn_fc_nph     		 <=   fc_nph;                           
+	trn_fc_pd 				 <=   fc_pd;                                    
+   trn_fc_ph      		 <=   fc_ph;                                     
+   fc_sel         		 <=   trn_fc_sel;
+    
+-- TRANSMIT	 
+	 s_axis_tx_tdata <= trn_td(31 downto 0) & trn_td(63 downto 32);
+
+    CMB_STRB_MUX : process(trn_teof,trn_trem)
+    begin
+      if (trn_teof = '1' and trn_trem(0) = '0') then
+        s_axis_tx_tkeep <= X"0F";
+      else
+        s_axis_tx_tkeep <= X"FF";
+      end if;
+    end process;
+
+  --Connection of s_axis_tx_tuser with  trn_tsrc_dsc,trn_tstr,trn_terr_fwd and trn_terr_fwd
+  s_axis_tx_tuser(3) <= trn_tsrc_dsc; 
+  s_axis_tx_tuser(2) <= trn_tstr;
+  s_axis_tx_tuser(1) <= trn_terrfwd;
+  s_axis_tx_tuser(0) <= trn_tecrc_gen;
+  s_axis_tx_tvalid 	<= trn_tsrc_rdy; 
+  trn_tdst_rdy       <= s_axis_tx_tready; 
+  s_axis_tx_tlast    <= trn_teof;
+    
+--RECEIVE
+
+  trn_rd <= m_axis_rx_tdata( 31 downto  0) & m_axis_rx_tdata( 63 downto 32);
+
+  m_axis_rx_tready     <= trn_rdst_rdy;
+  
+  --Regenerate trn_rsof
+  --Used clock. Latency may have been added
+
+    in_pckt_register : process(user_clk)
+    begin
+      if rising_edge(user_clk) then
+        if user_reset = '1' then -- Add user_reset (_q)
+          in_packet_reg <= '0';
+        elsif (m_axis_rx_tvalid = '1') then -- DOBAVIL m_axis_rx_tready
+          in_packet_reg <= not(m_axis_rx_tlast);
+        end if;
+      end if;
+    end process;	 
+	 
+	 trn_rsof <= m_axis_rx_tvalid and not(in_packet_reg);  
+    trn_reof <= m_axis_rx_tlast;  
+    trn_rsrc_rdy <= m_axis_rx_tvalid;
+  
+  --Regenerate trn_rsrc_dsc
+  --Used clock. Latency may have been added
+  trn_rsrc_dsc_reg : process(user_clk)
+  begin
+  
+    if rising_edge(user_clk) then
+      if user_reset = '1' then 
+        trn_rsrc_dsc <= '1';     
+      else
+        trn_rsrc_dsc <= not(user_lnk_up); 
+      end if;
+    end if;
+  end process;
+  
+  is_sof <= m_axis_rx_tuser(14 downto 10);
+  is_eof <= m_axis_rx_tuser(21 downto 17); 
+  
+  CMB_TRN_RREM : process(m_axis_rx_tlast,m_axis_rx_tkeep)
+    begin
+      if (m_axis_rx_tlast = '1') then
+        if ( m_axis_rx_tkeep = X"FF") then
+          trn_rrem(0) <= '1';
+        else
+          trn_rrem(0) <= '0';
+        end if;
+      else
+       trn_rrem(0) <= '1';
+      end if;
+    end process;                
+  
+  trn_rerrfwd <= m_axis_rx_tuser(1);
+  trn_rbar_hit <= m_axis_rx_tuser(8 downto 2);
 
 end Behavioral; 
 

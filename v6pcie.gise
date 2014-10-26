@@ -31,8 +31,6 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
-    <file xil_pn:fileType="FILE_USERDOC" xil_pn:name="ipcore_dir/v7_pcie_readme.txt"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir_ISE13.3/coregen.log"/>
     <file xil_pn:fileType="FILE_ASY" xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.asy" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.ngc" xil_pn:origination="imported"/>
@@ -139,14 +137,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.ngc"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.vhd"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_mBuf_128x72.ngc"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_mBuf_128x72.vhd"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_sfifo_15x128.ngc"/>
-      <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_sfifo_15x128.vhd"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1414069860" xil_pn:in_ck="-7707245305283700861" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1414069860">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -173,7 +168,7 @@
     </transform>
     <transform xil_pn:end_ts="1414069867" xil_pn:in_ck="-21229204476726042" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-8669375309876819172" xil_pn:start_ts="1414069867">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -189,7 +184,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1414319468" xil_pn:in_ck="-2735245465574021027" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-2208595034280238460" xil_pn:start_ts="1414319467">
+    <transform xil_pn:end_ts="1414327666" xil_pn:in_ck="6833104384477025641" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-2208595034280238460" xil_pn:start_ts="1414327666">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.ngc"/>
@@ -215,7 +210,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1414319624" xil_pn:in_ck="3386926076269559848" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="7046497939857611807" xil_pn:start_ts="1414319468">
+    <transform xil_pn:end_ts="1414335923" xil_pn:in_ck="6638345491021070538" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="7046497939857611807" xil_pn:start_ts="1414335774">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -233,34 +228,24 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1414319624" xil_pn:in_ck="5093126637768671985" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="5013254933163173335" xil_pn:start_ts="1414319624">
+    <transform xil_pn:end_ts="1414326518" xil_pn:in_ck="5093126637768671985" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="5013254933163173335" xil_pn:start_ts="1414326518">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1414319690" xil_pn:in_ck="-1232421944895366047" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4993620823033948991" xil_pn:start_ts="1414319624">
+    <transform xil_pn:end_ts="1414335967" xil_pn:in_ck="6424481986614495971" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4993620823033948991" xil_pn:start_ts="1414335923">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="v6pcieDMA.bld"/>
       <outfile xil_pn:name="v6pcieDMA.ngd"/>
-      <outfile xil_pn:name="v6pcieDMA_cs.blc"/>
-      <outfile xil_pn:name="v6pcieDMA_cs.ngc"/>
       <outfile xil_pn:name="v6pcieDMA_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1414321142" xil_pn:in_ck="-6339316621264877481" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="6170997345395242690" xil_pn:start_ts="1414319690">
+    <transform xil_pn:end_ts="1414336870" xil_pn:in_ck="-6339316621264877481" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="6170997345395242690" xil_pn:start_ts="1414335967">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="v6pcieDMA.pcf"/>
       <outfile xil_pn:name="v6pcieDMA_map.map"/>
@@ -271,13 +256,10 @@
       <outfile xil_pn:name="v6pcieDMA_summary.xml"/>
       <outfile xil_pn:name="v6pcieDMA_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1414321293" xil_pn:in_ck="4946947202368285424" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-6993472051956009272" xil_pn:start_ts="1414321142">
-      <status xil_pn:value="AbortedRun"/>
+    <transform xil_pn:end_ts="1414337419" xil_pn:in_ck="4946947202368285424" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-6993472051956009272" xil_pn:start_ts="1414336870">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="v6pcieDMA.ncd"/>
       <outfile xil_pn:name="v6pcieDMA.pad"/>
@@ -287,35 +269,35 @@
       <outfile xil_pn:name="v6pcieDMA.xpi"/>
       <outfile xil_pn:name="v6pcieDMA_pad.csv"/>
       <outfile xil_pn:name="v6pcieDMA_pad.txt"/>
+      <outfile xil_pn:name="v6pcieDMA_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1414315371" xil_pn:in_ck="-3197664643026418366" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="-253981287426239194" xil_pn:start_ts="1414315220">
-      <status xil_pn:value="AbortedRun"/>
+    <transform xil_pn:end_ts="1414337650" xil_pn:in_ck="-3197664643026418366" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="-4955710853972966745" xil_pn:start_ts="1414337419">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputRemoved"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="v6pcieDMA.ut"/>
+      <outfile xil_pn:name="v6pciedma.bgn"/>
+      <outfile xil_pn:name="v6pciedma.bit"/>
+      <outfile xil_pn:name="v6pciedma.drc"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1414073100" xil_pn:in_ck="-3197664643026431220" xil_pn:name="TRAN_analyzeDesignUsingChipscope" xil_pn:prop_ck="4993620823033948991" xil_pn:start_ts="1414073100">
+    <transform xil_pn:end_ts="1414322887" xil_pn:in_ck="-3197664600409174164" xil_pn:name="TRAN_analyzeDesignUsingChipscope" xil_pn:prop_ck="4993620823033948991" xil_pn:start_ts="1414322887">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-    </transform>
-    <transform xil_pn:end_ts="1414309548" xil_pn:in_ck="-6339316621264877613" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1414309509">
-      <status xil_pn:value="AbortedRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1414337419" xil_pn:in_ck="-6339316621264877613" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1414337380">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="v6pcieDMA.twr"/>
+      <outfile xil_pn:name="v6pcieDMA.twx"/>
     </transform>
   </transforms>
 

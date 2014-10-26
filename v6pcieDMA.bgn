@@ -5,21 +5,21 @@ C:\Xilinx\14.7\ISE_DS\ISE\.
    "v6pcieDMA" is an NCD, version 3.2, device xc7a200t, package fbg676, speed -2
 Opened constraints file v6pcieDMA.pcf.
 
-Sun Oct 26 13:20:39 2014
+Sun Oct 26 19:30:38 2014
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:3 -g CclkPin:PullUp -g M0Pin:PullUp -g M1Pin:PullUp -g M2Pin:PullUp -g ProgPin:PullUp -g InitPin:Pullup -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g Disable_JTAG:No -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:Disable -g ConfigFallback:Disable -g BPI_page_size:1 -g BPI_sync_mode:Disable -g SPI_32bit_addr:No -g SPI_buswidth:1 -g SPI_Fall_Edge:No -g OverTempPowerDown:Disable -g USR_ACCESS:None -g JTAG_XADC:Enable -g DCIUpdateMode:AsRequired -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g Match_cycle:NoWait -g Security:None -g ICAP_select:Auto -g DonePipe:Yes -g Encrypt:No v6pcieDMA.ncd 
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -g spi_opcode:0x6B -w -g Binary:no -g Compress -g CRC:Enable -g ConfigRate:3 -g CclkPin:PullUp -g M0Pin:PullUp -g M1Pin:PullUp -g M2Pin:PullUp -g ProgPin:PullUp -g InitPin:Pullup -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g Disable_JTAG:No -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:div-1 -g ConfigFallback:Disable -g BPI_page_size:1 -g BPI_sync_mode:Disable -g SPI_32bit_addr:No -g SPI_buswidth:4 -g SPI_Fall_Edge:Yes -g OverTempPowerDown:Disable -g USR_ACCESS:None -g JTAG_XADC:Enable -g DCIUpdateMode:AsRequired -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g Match_cycle:NoWait -g Security:None -g ICAP_select:Auto -g DonePipe:Yes -g Encrypt:No v6pcieDMA.ncd 
 
 Summary of Bitgen Options:
 +----------------------+----------------------+
 | Option Name          | Current Setting      |
 +----------------------+----------------------+
-| Compress             | (Not Specified)*     |
+| Compress             | (Enabled)            |
 +----------------------+----------------------+
 | Readback             | (Not Specified)*     |
 +----------------------+----------------------+
 | CRC                  | Enable**             |
 +----------------------+----------------------+
-| DebugBitstream       | No**                 |
+| DebugBitstream       | No*                  |
 +----------------------+----------------------+
 | ConfigRate           | 3**                  |
 +----------------------+----------------------+
@@ -113,15 +113,15 @@ Summary of Bitgen Options:
 +----------------------+----------------------+
 | Partial              | (Not Specified)*     |
 +----------------------+----------------------+
-| ExtMasterCclk_en     | Disable**            |
+| ExtMasterCclk_en     | div-1                |
 +----------------------+----------------------+
 | BPI_sync_mode        | Disable**            |
 +----------------------+----------------------+
 | SPI_32bit_addr       | No**                 |
 +----------------------+----------------------+
-| SPI_buswidth         | 1**                  |
+| SPI_buswidth         | 4                    |
 +----------------------+----------------------+
-| SPI_Fall_Edge        | No**                 |
+| SPI_Fall_Edge        | Yes                  |
 +----------------------+----------------------+
 | RevisionSelect       | 00*                  |
 +----------------------+----------------------+
@@ -146,51 +146,16 @@ There were 0 CONFIG constraint(s) processed from v6pcieDMA.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is
-   sourced by a combinatorial pin. This is not good design practice. Use the CE
-   pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<38>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<50>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<51>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<57>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<58>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<60>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<81>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<84>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<91>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<101>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<102>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<103>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<104>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<133>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<135>> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ila0_trig0<136>> is incomplete. The
-   signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <trn_reset_n> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/gtp_pipe_reset.gtp_pip
-   e_reset_i/RST_RXUSRCLK> is incomplete. The signal does not drive any load
-   pins in the design.
+   <make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/pipe_lane[1].pipe_user
+   _i/USER_OOBCLK_IN> is incomplete. The signal does not drive any load pins in
+   the design.
 WARNING:PhysDesignRules:367 - The signal
-   <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
-   _inst/NULL_RX_tkeep<6>> is incomplete. The signal does not drive any load
-   pins in the design.
+   <make4Lanes.pcieCore/v7_pcie_i/gt_top_i/pipe_wrapper_i/pipe_lane[0].pipe_user
+   _i/USER_OOBCLK_IN> is incomplete. The signal does not drive any load pins in
+   the design.
 WARNING:PhysDesignRules:367 - The signal
    <make4Lanes.pcieCore/v7_pcie_i/pcie_top_i/axi_basic_top_i/rx_inst/rx_pipeline
    _inst/NULL_RX_tkeep<5>> is incomplete. The signal does not drive any load
@@ -230,8 +195,9 @@ WARNING:PhysDesignRules:367 - The signal
 WARNING:PhysDesignRules:367 - The signal
    <theTlpControl/rx_Itf/Rx_Input_Delays/trn_rrem_n<0>> is incomplete. The
    signal does not drive any load pins in the design.
-DRC detected 0 errors and 32 warnings.  Please see the previously displayed
+DRC detected 0 errors and 15 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "v6pciedma.bit".
+Bitstream compression saved 51468992 bits.
 Bitstream generation is complete.

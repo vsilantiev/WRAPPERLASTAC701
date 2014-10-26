@@ -78,7 +78,7 @@ end entity v6pcieDMA;
 architecture Behavioral of v6pcieDMA is
 -- PART ADC
  
- component ADC_emul
+ component anyADC
 	port (
 			 trn_clk					  : in  std_logic;
 			 adc_clk_in_p          : in  std_logic;
@@ -964,7 +964,7 @@ end component;
 begin
 -- PART ADC
 
-   ad9467_1: ADC_emul
+   adc: anyADC
 	  port map (
 			trn_clk		=> trn_clk,
 			adc_clk_in_p => adc_clk_in_p,          

@@ -2,12 +2,15 @@ Release 14.7 ngdbuild P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
--intstyle ise -dd _ngo -sd ipcore_dir_ISE13.3 -sd ipcore_dir -nt timestamp -uc
-ABB3_pcie_4_lane_Emu_FIFO_elink.ucf -p xc7a200t-fbg676-2 v6pcieDMA_cs.ngc
+-intstyle ise -dd _ngo -sd ipcore_dir_ISE13.3 -nt timestamp -uc
+ABB3_pcie_4_lane_Emu_FIFO_elink.ucf -p xc7a200t-fbg676-2 v6pcieDMA.ngc
 v6pcieDMA.ngd
 
 Reading NGO file
-"C:/Users/vsilantiev/Documents/LASTWAC701/WRAPPERLASTAC701/v6pcieDMA_cs.ngc" ...
+"C:/Users/vsilantiev/Documents/LASTWAC701/WRAPPERLASTAC701/v6pcieDMA.ngc" ...
+Loading design module "ipcore_dir_ISE13.3/v6_mBuf_128x72.ngc"...
+Loading design module "ipcore_dir_ISE13.3/v6_sfifo_15x128.ngc"...
+Loading design module "ipcore_dir_ISE13.3/v6_eb_fifo_counted_resized.ngc"...
 Gathering constraint information from source properties...
 Done.
 
@@ -1022,34 +1025,6 @@ WARNING:NgdBuild:452 - logical net 'eb_we' has no driver
 WARNING:NgdBuild:452 - logical net 'trn_terrfwd_n' has no driver
 WARNING:NgdBuild:452 - logical net 'trn_tsrc_dsc_n' has no driver
 WARNING:NgdBuild:452 - logical net 'eb_pfull' has no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<20>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<19>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<18>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<17>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<16>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<15>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<14>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<13>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<12>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<11>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<10>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<9>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<1>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/m_axis_rx_tuser<0>' has
-   no driver
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/cfg_status<15>' has no
    driver
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/cfg_status<14>' has no
@@ -1152,16 +1127,34 @@ WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/cfg_dcommand2<13>' has
    no driver
 WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/cfg_dcommand2<12>' has
    no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<3>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<2>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<1>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tkeep<0>' has
-   no driver
-WARNING:NgdBuild:452 - logical net 'make4Lanes.pcieCore/s_axis_tx_tuser<0>' has
-   no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<20>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<19>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<18>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<17>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<16>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<15>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<14>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<13>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<12>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<11>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<10>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<9>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<1>' has no driver
+WARNING:NgdBuild:452 - logical net
+   'make4Lanes.pcieCore/v7_pcie_i/m_axis_rx_tuser<0>' has no driver
 WARNING:NgdBuild:452 - logical net
    'make4Lanes.pcieCore/v7_pcie_i/cfg_mgmt_rd_wr_done' has no driver
 WARNING:NgdBuild:452 - logical net
@@ -2933,12 +2926,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 1447
+  Number of warnings: 1442
 
-Total memory usage is 375340 kilobytes
+Total memory usage is 311072 kilobytes
 
 Writing NGD file "v6pcieDMA.ngd" ...
-Total REAL time to NGDBUILD completion:  44 sec
-Total CPU time to NGDBUILD completion:   42 sec
+Total REAL time to NGDBUILD completion:  40 sec
+Total CPU time to NGDBUILD completion:   38 sec
 
 Writing NGDBUILD log file "v6pcieDMA.bld"...
